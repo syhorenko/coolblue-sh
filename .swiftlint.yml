@@ -78,7 +78,7 @@ opt_in_rules:
 - yoda_condition
 
 excluded:
-- BUUTSHorenkoTests
+- CoolblueSHorenkoTests
 
 line_length:
     warning: 200
