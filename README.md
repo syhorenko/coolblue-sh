@@ -1,31 +1,42 @@
-# coolblue-sh
-iOS assignment. Build an app that can be used to search for products
+# Coolblue Shopping App
 
-Goal
-The goal of the assignment is to give us insight into how you solve problems and what kind
-of choices you make when writing code. In the meantime you get a bit of experience in
-creating a shopping app.
+iOS technical assignment for Coolblue.
 
-Shopping app
-The assignment consists of you actually building an app that can be used to search for
-products that Coolblue sells.
+The goal is to build a simple shopping app that allows users to search for products sold by Coolblue and browse the search results.
 
-https://bdk0sta2n0.execute-api.eu-west-1.amazonaws.com/mobile-assignment/search?que
+## Goal
 
-What will you be doing?
-You’ll build a very simple app that implements the first User Story in the backlog:
-As a user, I want to search for a product, so that I can scroll through a list of products
-and find something interesting to buy.
+The goal of this assignment is to provide insight into how problems are approached and what architectural and implementation choices are made when writing code.
 
-Non-functionals
-We also have some non-functional requirements, which you should take into account when
-developing the application:
+At the same time, the assignment provides some experience with building a shopping application.
 
-You use Swift and Swift UI.
-You share your code with us in a Github repository.
-You use known design patterns to build a proper architecture.
-You add Unit and UI tests.
-You use Swift Package Manager (SPM) if you need them.
-You use some images to make it a bit visual.
-You can use AI assisted development tools. Make sure you understand the code you
-are shipping very well, we will ask you about it.
+## Shopping App
+
+The application should allow users to search for products that Coolblue sells.
+
+### API
+
+Product search endpoint:
+
+```text
+https://bdk0sta2n0.execute-api.eu-west-1.amazonaws.com/mobile-assignment/search?que=
+```
+
+## User Story
+
+The application should implement the first user story from the backlog:
+
+> **As a user, I want to search for a product, so that I can scroll through a list of products and find something interesting to buy.**
+
+## Requirements
+
+The following non-functional requirements should be taken into account when developing the application:
+
+- Use **Swift** and **SwiftUI**
+- Share the source code through a **GitHub repository**
+- Use established design patterns and a clear application architecture
+- Add **Unit Tests**
+- Add **UI Tests**
+- Use **Swift Package Manager (SPM)** for external dependencies, if needed
+- Use product images to make the application visually engaging
+- AI-assisted development tools may be used, but all submitted code should be fully understood and explainable during the technical interview
