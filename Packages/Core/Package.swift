@@ -9,16 +9,23 @@ let mainActorLayer: [SwiftSetting] = [.swiftLanguageMode(.v6), .defaultIsolation
 
 let package = Package(
     name: "Core",
-    platforms: [.iOS(.v18)],
+    // iOS is the only shipping platform. macOS is declared so `swift build` works on the
+    // host, which is what Scripts/check-layering.sh relies on to verify the layer graph.
+    platforms: [.iOS(.v18), .macOS(.v14)],
     products: [
         .library(name: "Networking", targets: ["Networking"]),
         .library(name: "DesignSystem", targets: ["DesignSystem"])
     ],
+    dependencies: [
+        // Image loading, caching and SwiftUI integration. Contained inside DesignSystem
+        // so no other module — and not the app target — imports it directly.
+        .package(url: "https://github.com/onevcat/Kingfisher.git", .upToNextMajor(from: "8.12.0"))
+    ],
     targets: [
         // Feature-agnostic HTTP transport. Knows nothing about products.
         .target(name: "Networking", swiftSettings: backgroundLayer),
-        // Feature-agnostic visual primitives: spacing, colours, typography.
-        .target(name: "DesignSystem", swiftSettings: mainActorLayer),
+        // Feature-agnostic visual primitives: spacing, colours, typography, states.
+        .target(name: "DesignSystem", dependencies: ["Kingfisher"], swiftSettings: mainActorLayer),
 
         .target(name: "CoreTestSupport", dependencies: ["Networking"],
                 path: "Tests/CoreTestSupport", swiftSettings: backgroundLayer),

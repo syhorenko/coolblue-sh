@@ -6,7 +6,7 @@ let mainActorLayer: [SwiftSetting] = [.swiftLanguageMode(.v6), .defaultIsolation
 
 let package = Package(
     name: "Product",
-    platforms: [.iOS(.v18)],
+    platforms: [.iOS(.v18), .macOS(.v14)],
     products: [
         .library(name: "ProductDomain", targets: ["ProductDomain"]),
         .library(name: "ProductData", targets: ["ProductData"]),
