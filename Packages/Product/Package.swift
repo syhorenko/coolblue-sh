@@ -48,7 +48,7 @@ let package = Package(
                                    .product(name: "Networking", package: "Core")],
                     swiftSettings: backgroundLayer),
         .testTarget(name: "ProductPresentationTests",
-                    dependencies: ["ProductPresentation", "ProductTestSupport"],
+                    dependencies: ["ProductPresentation", "ProductDomain", "ProductTestSupport"],
                     swiftSettings: mainActorLayer)
     ]
 )
