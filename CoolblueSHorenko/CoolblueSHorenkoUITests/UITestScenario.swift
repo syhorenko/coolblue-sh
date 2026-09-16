@@ -31,7 +31,11 @@ extension XCUIApplication {
     }
 
     /// The product rows, in the order they are drawn.
+    ///
+    /// Buttons, not `.any`: each row is a `NavigationLink`, and the identifier set inside
+    /// the row also surfaces on elements the link wraps it in. Matching the button matches
+    /// each row exactly once.
     var productRows: XCUIElementQuery {
-        descendants(matching: .any).matching(identifier: AccessibilityID.row)
+        buttons.matching(identifier: AccessibilityID.row)
     }
 }

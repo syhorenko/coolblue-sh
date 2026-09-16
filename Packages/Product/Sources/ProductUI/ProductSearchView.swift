@@ -6,6 +6,7 @@
 //
 
 import DesignSystem
+import ProductDomain
 import ProductPresentation
 import SwiftUI
 
@@ -20,6 +21,9 @@ public struct ProductSearchView: View {
         NavigationStack {
             content
                 .navigationTitle("Coolblue")
+                .navigationDestination(for: Product.self) { product in
+                    ProductDetailView(product: product)
+                }
                 .task { await load() }
         }
     }
@@ -32,7 +36,9 @@ public struct ProductSearchView: View {
 
         case let .loaded(products):
             List(products) { product in
-                ProductRow(product: product)
+                NavigationLink(value: product) {
+                    ProductRow(product: product)
+                }
             }
             .listStyle(.plain)
             .accessibilityIdentifier(ProductSearchAccessibility.list)

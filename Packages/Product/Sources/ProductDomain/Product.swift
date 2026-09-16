@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Product: Identifiable, Equatable, Sendable {
+public struct Product: Identifiable, Hashable, Sendable {
     public let id: Int
     public let name: String
     public let price: Decimal
@@ -34,7 +34,7 @@ public struct Product: Identifiable, Equatable, Sendable {
 
 extension Product {
 
-    public struct Rating: Equatable, Sendable {
+    public struct Rating: Hashable, Sendable {
         public let average: Double
         public let count: Int
 
@@ -44,7 +44,7 @@ extension Product {
         }
     }
     
-    public enum Availability: Equatable, Sendable {
+    public enum Availability: Hashable, Sendable {
         case inStock
         case unavailable
     }
