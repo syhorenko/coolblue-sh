@@ -24,6 +24,7 @@ public struct URLSessionHTTPClient: HTTPClient {
         let response: URLResponse
 
         do {
+//            try await Task.sleep(for: .seconds(2)) 
             (data, response) = try await session.data(for: Self.urlRequest(for: request))
         } catch {
             // Every URLSession failure — offline, DNS, timeout, cancellation — is the
