@@ -41,7 +41,11 @@ let package = Package(
                 path: "Tests/ProductTestSupport", swiftSettings: backgroundLayer),
         .testTarget(name: "ProductDomainTests", dependencies: ["ProductDomain", "ProductTestSupport"],
                     swiftSettings: backgroundLayer),
-        .testTarget(name: "ProductDataTests", dependencies: ["ProductData", "ProductTestSupport"],
+        // Networking and ProductDomain are declared, not inherited: the suite builds
+        // HTTPRequest/HTTPResponse values directly and asserts on domain entities.
+        .testTarget(name: "ProductDataTests",
+                    dependencies: ["ProductData", "ProductDomain", "ProductTestSupport",
+                                   .product(name: "Networking", package: "Core")],
                     swiftSettings: backgroundLayer),
         .testTarget(name: "ProductPresentationTests",
                     dependencies: ["ProductPresentation", "ProductTestSupport"],
