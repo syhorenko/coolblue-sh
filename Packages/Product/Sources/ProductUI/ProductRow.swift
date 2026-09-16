@@ -36,6 +36,7 @@ struct ProductRow: View {
         }
         .padding(.vertical, Spacing.xSmall)
         .accessibilityElement(children: .combine)
+        .accessibilityIdentifier(ProductSearchAccessibility.row)
     }
 
     private func ratingLabel(_ rating: Product.Rating) -> some View {

@@ -35,6 +35,7 @@ public struct ProductSearchView: View {
                 ProductRow(product: product)
             }
             .listStyle(.plain)
+            .accessibilityIdentifier(ProductSearchAccessibility.list)
 
         case .empty:
             EmptyStateView(
