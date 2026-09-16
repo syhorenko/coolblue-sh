@@ -5,6 +5,7 @@
 //  Created by Serhii Horenko on 16/09/2026.
 //
 
+import Foundation
 import Networking
 import XCTest
 
@@ -32,5 +33,34 @@ final class AppCompositionTests: XCTestCase {
 
         XCTAssertTrue(environment.httpClient is URLSessionHTTPClient)
         XCTAssertEqual(environment.searchAPIBaseURL, AppEndpoints.searchAPI)
+    }
+
+    @MainActor
+    func testComposingTheSearchScreenSendsNoRequest() {
+        // Building a screen must be free. The fetch belongs to the view's .task, so that
+        // a screen built and thrown away -- by a preview, or a navigation that is
+        // cancelled -- costs nothing.
+        let client = HTTPClientSpy()
+        let environment = AppEnvironment(httpClient: client, searchAPIBaseURL: AppEndpoints.searchAPI)
+
+        _ = ProductSearchComposer.makeSearchScreen(environment: environment)
+
+        XCTAssertEqual(client.sendCount, 0)
+    }
+}
+
+/// Counts requests without making any. The app target has no other need for a double,
+/// so it lives beside the one test that uses it.
+private final class HTTPClientSpy: HTTPClient, @unchecked Sendable {
+    private let lock = NSLock()
+    private var count = 0
+
+    var sendCount: Int {
+        lock.withLock { count }
+    }
+
+    func send(_ request: HTTPRequest) async throws(HTTPError) -> HTTPResponse {
+        lock.withLock { count += 1 }
+        throw .connectivity
     }
 }

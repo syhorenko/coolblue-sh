@@ -15,7 +15,7 @@ struct CoolblueSHorenkoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RootView(environment: environment)
+            ProductSearchComposer.makeSearchScreen(environment: environment)
         }
     }
 }

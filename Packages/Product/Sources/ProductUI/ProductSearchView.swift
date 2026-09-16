@@ -9,7 +9,6 @@ import DesignSystem
 import ProductPresentation
 import SwiftUI
 
-
 public struct ProductSearchView: View {
     @State private var viewModel: ProductSearchViewModel
 

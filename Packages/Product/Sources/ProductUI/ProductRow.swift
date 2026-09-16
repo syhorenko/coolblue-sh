@@ -56,8 +56,10 @@ struct ProductRow: View {
 
     private func ratingAccessibilityLabel(_ rating: Product.Rating) -> String {
         let average = rating.average.formatted(.number.precision(.fractionLength(1)))
+
         return "Rated \(average) out of 10, \(rating.count.formatted()) reviews"
     }
+
     private var availabilityLabel: some View {
         HStack(spacing: Spacing.xSmall) {
             Circle()
