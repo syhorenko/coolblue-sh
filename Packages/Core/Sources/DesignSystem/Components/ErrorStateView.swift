@@ -7,21 +7,17 @@
 
 import SwiftUI
 
-/// A failure the user can do something about.
-///
-/// The retry action is a closure, not a protocol or a delegate: this view renders a
-/// message and reports a tap, and has no opinion about what retrying means.
 public struct ErrorStateView: View {
     private let title: String
     private let message: String
     private let retryTitle: String
-    private let retry: () -> Void
+    private let retry: (() -> Void)?
 
     public init(
         title: String,
         message: String,
         retryTitle: String = "Try again",
-        retry: @escaping () -> Void
+        retry: (() -> Void)? = nil
     ) {
         self.title = title
         self.message = message
@@ -35,9 +31,11 @@ public struct ErrorStateView: View {
         } description: {
             Text(message)
         } actions: {
-            Button(retryTitle, action: retry)
-                .buttonStyle(.borderedProminent)
-                .tint(Palette.brand)
+            if let retry {
+                Button(retryTitle, action: retry)
+                    .buttonStyle(.borderedProminent)
+                    .tint(Palette.brand)
+            }
         }
     }
 }

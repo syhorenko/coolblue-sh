@@ -34,7 +34,8 @@ let package = Package(
         // SwiftUI views. Cannot see ProductData or Networking -- so it cannot
         // build its own dependencies, which is the point.
         .target(name: "ProductUI",
-                dependencies: ["ProductPresentation", .product(name: "DesignSystem", package: "Core")],
+                dependencies: ["ProductPresentation", "ProductDomain",
+                               .product(name: "DesignSystem", package: "Core")],
                 swiftSettings: mainActorLayer),
 
         .target(name: "ProductTestSupport", dependencies: ["ProductDomain"],

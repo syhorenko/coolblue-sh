@@ -7,7 +7,6 @@
 
 import ProductDomain
 
-
 public enum ProductSearchViewState: Equatable, Sendable {
     case loading
     case loaded([Product])

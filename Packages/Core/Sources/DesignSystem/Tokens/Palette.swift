@@ -21,6 +21,12 @@ public enum Palette {
     /// Coolblue blue. Navigation and links.
     public static let brand = Color(red: 0.0, green: 0.45, blue: 0.82)
 
+    /// The availability dots. Never shown on their own — each sits beside the words it
+    /// stands for, because a colour says nothing to VoiceOver and little to a colour-blind
+    /// customer.
+    public static let available = Color.green
+    public static let unavailable = Color.red
+
     public static let primaryText = Color.primary
     public static let secondaryText = Color.secondary
     public static let surface = Color.gray.opacity(0.12)

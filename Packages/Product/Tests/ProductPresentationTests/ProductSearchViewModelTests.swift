@@ -168,8 +168,8 @@ struct ProductSearchViewModelTests {
 
 // MARK: - Reading the failure case out of the state
 
-private extension ProductSearchViewState {
-    var failure: (message: String, isRetryable: Bool)? {
+extension ProductSearchViewState {
+    fileprivate var failure: (message: String, isRetryable: Bool)? {
         guard case let .failed(message, isRetryable) = self else {
             return nil
         }

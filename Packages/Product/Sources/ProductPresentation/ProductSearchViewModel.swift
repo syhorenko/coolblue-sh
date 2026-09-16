@@ -8,7 +8,6 @@
 import Observation
 import ProductDomain
 
-
 @Observable
 public final class ProductSearchViewModel {
     public private(set) var state: ProductSearchViewState = .loading
