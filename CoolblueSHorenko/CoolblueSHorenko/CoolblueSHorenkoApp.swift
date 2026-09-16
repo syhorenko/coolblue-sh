@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct CoolblueSHorenkoApp: App {
+    /// Built once, at launch. Everything the app needs is assembled here and passed
+    /// down; nothing reaches for a singleton.
+    private let environment = AppEnvironment.live()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView(environment: environment)
         }
     }
 }

@@ -12,6 +12,8 @@
 		CB00000000000000000000C3 /* ProductData in Frameworks */ = {isa = PBXBuildFile; productRef = CB00000000000000000000B3 /* ProductData */; };
 		CB00000000000000000000C4 /* ProductPresentation in Frameworks */ = {isa = PBXBuildFile; productRef = CB00000000000000000000B4 /* ProductPresentation */; };
 		CB00000000000000000000C5 /* ProductUI in Frameworks */ = {isa = PBXBuildFile; productRef = CB00000000000000000000B5 /* ProductUI */; };
+		CB00000000000000000000C6 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = CB00000000000000000000B6 /* DesignSystem */; };
+		CB00000000000000000000C7 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = CB00000000000000000000B7 /* Networking */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB00000000000000000000C1 /* Networking in Frameworks */,
+				CB00000000000000000000C6 /* DesignSystem in Frameworks */,
 				CB00000000000000000000C2 /* ProductDomain in Frameworks */,
 				CB00000000000000000000C3 /* ProductData in Frameworks */,
 				CB00000000000000000000C4 /* ProductPresentation in Frameworks */,
@@ -72,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB00000000000000000000C7 /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +132,7 @@
 			name = CoolblueSHorenko;
 			packageProductDependencies = (
 				CB00000000000000000000B1 /* Networking */,
+				CB00000000000000000000B6 /* DesignSystem */,
 				CB00000000000000000000B2 /* ProductDomain */,
 				CB00000000000000000000B3 /* ProductData */,
 				CB00000000000000000000B4 /* ProductPresentation */,
@@ -155,6 +160,7 @@
 			);
 			name = CoolblueSHorenkoTests;
 			packageProductDependencies = (
+				CB00000000000000000000B7 /* Networking */,
 			);
 			productName = CoolblueSHorenkoTests;
 			productReference = 3CDBB7DB30597CEF00CE49C8 /* CoolblueSHorenkoTests.xctest */;
@@ -215,11 +221,11 @@
 			);
 			mainGroup = 3CDBB7C530597CEE00CE49C8;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			packageReferences = (
 				CB00000000000000000000A1 /* XCLocalSwiftPackageReference "../Packages/Core" */,
 				CB00000000000000000000A2 /* XCLocalSwiftPackageReference "../Packages/Product" */,
 			);
+			preferredProjectObjectVersion = 77;
 			productRefGroup = 3CDBB7CF30597CEE00CE49C8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -256,25 +262,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		CB00000000000000000000D1 /* Check Layering */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Check Layering";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ \"${ENABLE_PREVIEWS}\" = \"YES\" ]; then exit 0; fi\n\"${SRCROOT}/../Scripts/check-layering.sh\"\n";
-		};
 		3CDBB80030597CEF00CE49C8 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -293,6 +280,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ \"${ENABLE_PREVIEWS}\" = \"YES\" ]; then exit 0; fi\nif ! command -v swiftlint >/dev/null 2>&1; then\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint (brew install swiftlint)\"\n  exit 0\nfi\ncd \"${SRCROOT}/..\" || exit 1\nswiftlint lint --config .swiftlint.yml\n";
+		};
+		CB00000000000000000000D1 /* Check Layering */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Check Layering";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"${ENABLE_PREVIEWS}\" = \"YES\" ]; then exit 0; fi\n\"${SRCROOT}/../Scripts/check-layering.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -332,40 +338,6 @@
 			targetProxy = 3CDBB7E630597CEF00CE49C8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		CB00000000000000000000A1 /* XCLocalSwiftPackageReference "../Packages/Core" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Packages/Core;
-		};
-		CB00000000000000000000A2 /* XCLocalSwiftPackageReference "../Packages/Product" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Packages/Product;
-		};
-/* End XCLocalSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		CB00000000000000000000B1 /* Networking */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Networking;
-		};
-		CB00000000000000000000B2 /* ProductDomain */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = ProductDomain;
-		};
-		CB00000000000000000000B3 /* ProductData */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = ProductData;
-		};
-		CB00000000000000000000B4 /* ProductPresentation */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = ProductPresentation;
-		};
-		CB00000000000000000000B5 /* ProductUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = ProductUI;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3CDBB7ED30597CEF00CE49C8 /* Debug */ = {
@@ -706,6 +678,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		CB00000000000000000000A1 /* XCLocalSwiftPackageReference "../Packages/Core" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Packages/Core;
+		};
+		CB00000000000000000000A2 /* XCLocalSwiftPackageReference "../Packages/Product" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Packages/Product;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CB00000000000000000000B1 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+		CB00000000000000000000B2 /* ProductDomain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ProductDomain;
+		};
+		CB00000000000000000000B3 /* ProductData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ProductData;
+		};
+		CB00000000000000000000B4 /* ProductPresentation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ProductPresentation;
+		};
+		CB00000000000000000000B5 /* ProductUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ProductUI;
+		};
+		CB00000000000000000000B6 /* DesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignSystem;
+		};
+		CB00000000000000000000B7 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3CDBB7C630597CEE00CE49C8 /* Project object */;
 }
