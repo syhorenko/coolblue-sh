@@ -4,3 +4,7 @@ xcuserdata/*
 *.xcuserdatad
 *.xcuserstate
 *.xcworkspace
+# Swift Package Manager
+.build/
+.swiftpm/
+DerivedData/

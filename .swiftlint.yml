@@ -77,8 +77,18 @@ opt_in_rules:
 #- vertical_parameter_alignment_on_call
 - yoda_condition
 
+included:
+- CoolblueSHorenko/CoolblueSHorenko
+- Packages/Core/Sources
+- Packages/Core/Tests
+- Packages/Product/Sources
+- Packages/Product/Tests
+
 excluded:
-- CoolblueSHorenkoTests
+- CoolblueSHorenko/CoolblueSHorenkoTests
+- CoolblueSHorenko/CoolblueSHorenkoUITests
+- Packages/Core/.build
+- Packages/Product/.build
 
 line_length:
     warning: 200
